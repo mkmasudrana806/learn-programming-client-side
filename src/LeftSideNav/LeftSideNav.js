@@ -9,7 +9,6 @@ const LeftSideNav = () => {
       .then((result) => result.json())
       .then((data) => setCategories(data));
   }, []);
-  console.log(categories);
   return (
     <div className="navShadow">
       <h4 className="mb-4 mt-2">Languages Exercises</h4>

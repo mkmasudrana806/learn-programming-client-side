@@ -6,3 +6,11 @@
     -webkit-box-orient: vertical;
     white-space: normal;
   }
+  .description a{
+    color: green;
+font-size: large;
+  }
+  .description:hover a{
+    color: white;
+  }
+  

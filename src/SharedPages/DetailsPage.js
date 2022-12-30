@@ -1,5 +1,6 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link, useLoaderData } from "react-router-dom";
 
 const DetailsPage = () => {
   const topic = useLoaderData();
@@ -11,6 +12,9 @@ const DetailsPage = () => {
       <p className="mt-3">{intro}</p>
       <img src={photo_url} alt="" style={{ width: "100%" }} />
       <p className="mt-3">{details}</p>
+      <Button variant="primary" size="sm">
+        <Link to="/"> Back To Home Page</Link>
+      </Button>
     </div>
   );
 };

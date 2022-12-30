@@ -1,7 +1,9 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import BlogDetails from "../Blogs/BlogDetails";
 import Blogs from "../Blogs/Blogs";
 import CourseCart from "../courses/courseCard/CourseCart";
+import CourseDescription from "../courses/CourseDescription/CourseDescription";
 import CourseDetails from "../courses/courseDetails/CourseDetails";
 import Courses from "../courses/Courses";
 import Home from "../Home/Home";
@@ -18,7 +20,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     children: [
-      //below router is for tutorials and exercise
+      //below router are for tutorials and exercise
       {
         path: "/",
         element: <Home></Home>,
@@ -45,7 +47,7 @@ export const router = createBrowserRouter([
           return fetch(`http://localhost:5000/exercise-category/${params.id}`);
         },
       },
-      // below code is for courses
+      // routes for courses
       {
         path: "/courses",
         element: <Courses></Courses>,
@@ -53,11 +55,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/course/:id",
-        element: <CourseDetails></CourseDetails>,
+        element: <CourseDescription></CourseDescription>,
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/course/${params.id}`);
         },
       },
+      // routes for login and register
       {
         path: "/login",
         element: <Login></Login>,
@@ -66,9 +69,18 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      // routes for blogs section
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+        loader: () => fetch("http://localhost:5000/blogs"),
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails></BlogDetails>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/blog/${params.id}`);
+        },
       },
       {
         path: "/faq",
