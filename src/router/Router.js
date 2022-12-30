@@ -2,16 +2,16 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import BlogDetails from "../Blogs/BlogDetails";
 import Blogs from "../Blogs/Blogs";
-import CourseCart from "../courses/courseCard/CourseCart";
 import CourseDescription from "../courses/CourseDescription/CourseDescription";
-import CourseDetails from "../courses/courseDetails/CourseDetails";
 import Courses from "../courses/Courses";
+import CourseVideo from "../courses/courseShow/CourseVideo";
 import Home from "../Home/Home";
 import Main from "../layout/Main";
 import Login from "../LoginRegister/Login";
 import Register from "../LoginRegister/Register";
 import ExerciseCart from "../Pages/ExerciseCart";
 import FAQ from "../Pages/FAQ";
+import PremiumExercise from "../Pages/PremiumExercise";
 import DetailsPage from "../SharedPages/DetailsPage";
 import TopicsPage from "../SharedPages/TopicsPage";
 
@@ -20,12 +20,13 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     children: [
-      //below router are for tutorials and exercise
+      // home route
       {
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("http://localhost:5000/categories"),
       },
+      // routes for tutorials categories and tutorials
       {
         path: "/category/:id",
         element: <TopicsPage></TopicsPage>,
@@ -40,9 +41,17 @@ export const router = createBrowserRouter([
           return fetch(`http://localhost:5000/topic-details/${params.id}`);
         },
       },
+      // routes for exercise (left navbar )
       {
         path: "/exercise-category/:id",
         element: <ExerciseCart></ExerciseCart>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/exercise-category/${params.id}`);
+        },
+      },
+      {
+        path: "/premiumExercise/:id",
+        element: <PremiumExercise></PremiumExercise>,
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/exercise-category/${params.id}`);
         },
@@ -59,6 +68,10 @@ export const router = createBrowserRouter([
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/course/${params.id}`);
         },
+      },
+      {
+        path: "/courseShow",
+        element: <CourseVideo></CourseVideo>,
       },
       // routes for login and register
       {

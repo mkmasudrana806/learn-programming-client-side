@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
 import "./CourseCard.css";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -37,17 +37,17 @@ const CourseCart = ({ course }) => {
               <p className="mb-2">
                 <b>$ {price}</b>
               </p>
-              <div className="d-grid gap-2 align-self-end">
-                <Button
-                  className="description"
-                  variant="outline-success"
-                  size="md"
-                >
-                  <Link to={`/course/${course_id}`}>Description</Link>
-                </Button>
-                <Button variant="primary" size="md">
-                  <Link to="">Purchase</Link>
-                </Button>
+              <div className="d-grid gap-2 align-self-end w-100">
+                <Link className="description" to={`/course/${course_id}`}>
+                  <Button variant="outline-success" size="md" className="w-100">
+                    Description
+                  </Button>
+                </Link>
+                <Link className="description" to="/courseShow">
+                  <Button variant="primary" size="md" className="w-100">
+                    Purchase
+                  </Button>
+                </Link>
               </div>
             </div>
           </Card.Body>

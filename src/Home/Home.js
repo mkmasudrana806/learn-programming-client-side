@@ -7,9 +7,9 @@ const Home = () => {
   const categories = useLoaderData();
   return (
     <div>
-      <h3 className="mt-2">
+      <h4 className="bg-success text-light mb-3 p-2">
         Programming Languages Tutorials
-      </h3>
+      </h4>
 
       <Row lg={2} md={1}>
         {categories.map((category) => (

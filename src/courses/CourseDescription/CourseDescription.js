@@ -20,6 +20,7 @@ const CourseDescription = () => {
   return (
     <div className="course_description">
       <h4>Description of This Course</h4>
+      <Button variant="primary"><FaFilePdf className="text-info"> </FaFilePdf> Print As PDF </Button>{' '}
       <div>
         <img className="mt-3" style={{ width: "340px", height: "250px" }} src={photo} alt="" />
         <h5 className="mt-4">{course_title}</h5>
@@ -60,7 +61,7 @@ const CourseDescription = () => {
         </div>
       </div>
       <Button variant="primary"><Link to='/courses'>Back To Courses</Link></Button>{' '}
-      <Button variant="primary"><FaFilePdf className="text-info"> </FaFilePdf> Print As PDF </Button>{' '}
+      <Button variant="primary"> <Link to='/courseShow'>Purchanse</Link> </Button>{' '}
     </div>
   );
 };
