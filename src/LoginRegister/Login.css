@@ -1,0 +1,64 @@
+.form-width{
+    width: 50%;
+    margin: 20px auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+}
+
+.login{
+    font-family: 'Lato';
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    letter-spacing: 0.0025em;
+    color: #2A414F;
+    border-bottom: 2px solid blue;
+    margin-top: -10px;
+}
+.or{
+    max-width: 100%;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.or::before{
+    content: "";
+    width: 45%;
+    height: 2px;
+    display: block;
+    background: #c5bdbd;
+    position: absolute;
+    top:50%;
+    left: 0;
+}
+.or::after{
+    content: "";
+    width: 45%;
+    height: 2px;
+    display: block;
+    background: #c5bdbd;
+    position: absolute;
+    top:50%;
+    right: 0;
+}
+
+@media screen and (max-width:576px) {
+     .form-width{
+        width: 90%;
+     }
+}
+
+@media screen and (min-width:577px) and (max-width:765px) {
+    .form-width{
+        width: 80%;
+    }
+}
+@media screen and (min-width:767px) and (max-width:993px) {
+    .form-width{
+        width: 70%;
+    }
+}
