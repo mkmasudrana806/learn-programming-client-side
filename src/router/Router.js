@@ -1,9 +1,13 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import CourseCart from "../courses/courseCard/CourseCart";
+import CourseDetails from "../courses/courseDetails/CourseDetails";
+import Courses from "../courses/Courses";
 import Home from "../Home/Home";
 import Main from "../layout/Main";
-import DetailsPage from "../SharedContent/DetailsPage";
-import TopicsPage from "../SharedContent/TopicsPage";
+import ExerciseCart from "../Pages/ExerciseCart";
+import DetailsPage from "../SharedPages/DetailsPage";
+import TopicsPage from "../SharedPages/TopicsPage";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +31,26 @@ export const router = createBrowserRouter([
         element: <DetailsPage></DetailsPage>,
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/topic-details/${params.id}`);
+        },
+      },
+      {
+        path: "/exercise-category/:id",
+        element: <ExerciseCart></ExerciseCart>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/exercise-category/${params.id}`);
+        },
+      },
+      // below code is for courses
+      {
+        path: "/courses",
+        element: <Courses></Courses>,
+        loader: () => fetch("http://localhost:5000/courses"),
+      },
+      {
+        path: "/course/:id",
+        element: <CourseDetails></CourseDetails>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/course/${params.id}`);
         },
       },
     ],

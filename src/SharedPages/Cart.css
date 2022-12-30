@@ -2,21 +2,21 @@
     display: flex;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-top:25px;
+    margin-top:15px;
 }
 .language_cart img{
-   width: 170px;
-   height: 160px;
+   width: 140px;
+   height: 140px;
    background-color:rgb(82, 8, 255);
    border-radius: 10px;
 }
 .language_cart p, h3,button{
-    margin: 8px;
+    margin: 2px;
 }
 
 .languageInfo{
 margin-left: 10px;
-margin-top: 3px;
+margin-top: 5px;
 }
 button a{
 text-decoration: none;
@@ -29,3 +29,12 @@ button a:hover{
 .cart_button{
     display: flex;
 }
+
+.text-ellipsis-1{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }

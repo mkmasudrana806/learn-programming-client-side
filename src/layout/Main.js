@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
-import RightSideNav from "../RightSideNav/RightSideNav";
+import "./Main.css";
 
 const Main = () => {
   return (
@@ -13,14 +13,11 @@ const Main = () => {
       </div>
       <Container>
         <Row>
-          <Col lg="3">
+          <Col lg="3" className="leftNav">
             <LeftSideNav></LeftSideNav>
           </Col>
-          <Col lg="6">
+          <Col lg="9">
             <Outlet></Outlet>
-          </Col>
-          <Col lg="3">
-            <RightSideNav></RightSideNav>
           </Col>
         </Row>
       </Container>

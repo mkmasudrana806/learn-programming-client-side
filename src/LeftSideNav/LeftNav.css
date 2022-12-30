@@ -1,0 +1,12 @@
+
+.language a{
+    text-decoration: none;
+font-size: 18px;
+color: blue;
+}
+.language:hover{
+    background-color: rgb(243, 122, 23);
+}
+.language a:hover{
+    color:white;
+}

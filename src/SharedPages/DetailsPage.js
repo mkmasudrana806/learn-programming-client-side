@@ -7,9 +7,9 @@ const DetailsPage = () => {
   console.log(topic);
   return (
     <div>
-      <h4>{title}</h4>
+      <h4 className="mb-5 mt-3">{title}</h4>
       <p className="mt-3">{intro}</p>
-     <img src={photo_url} alt="" style={{width:'100%'}}/>
+      <img src={photo_url} alt="" style={{ width: "100%" }} />
       <p className="mt-3">{details}</p>
     </div>
   );
