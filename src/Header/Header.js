@@ -1,10 +1,14 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import "./Header.css";
 import logo from "../images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+  const [dark, setDark] = useState(false);
+  const ToggleBtn = (e) => {
+    setDark(e);
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -25,40 +29,61 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="navitems" id="responsive-navbar-nav">
           <Nav className="me-auto ">
-            <Link
-              to="/courses"
+            <NavLink
               className={({ isActive }) =>
-                isActive ? "activeClassName" : undefined
+                isActive ? "activeColor" : undefined
               }
+              to="/courses"
             >
               Courses
-            </Link>
-            <Link
-              to="/blogs"
+            </NavLink>
+            <NavLink
               className={({ isActive }) =>
-                isActive ? "activeClassName" : undefined
+                isActive ? "activeColor" : undefined
               }
+              to="/blogs"
             >
               Blogs
-            </Link>
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "activeColor" : undefined
+              }
+              to="/faq"
+            >
+              FAQ
+            </NavLink>
           </Nav>
           <Nav>
-            <Link
-              to="/blogs"
-              className={({ isActive }) =>
-                isActive ? "activeClassName" : undefined
-              }
-            >
-              Log In
-            </Link>
-            <Link
-              to="/blogs"
-              className={({ isActive }) =>
-                isActive ? "activeClassName" : undefined
-              }
-            >
-              Sign Up
-            </Link>
+            <span className="me-3">
+              {dark ? (
+                <Button onClick={() => ToggleBtn(false)} variant="dark">
+                  Light
+                </Button>
+              ) : (
+                <Button onClick={() => ToggleBtn(true)} variant="light">
+                  Dark
+                </Button>
+              )}
+            </span>
+            <span className="mt-1">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "activeColor" : undefined
+                }
+              >
+                <span>Log In</span>
+              </NavLink>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive ? "activeColor" : undefined
+                }
+              >
+                Register
+              </NavLink>
+            </span>
           </Nav>
         </Navbar.Collapse>
       </Container>
