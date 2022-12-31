@@ -1,10 +1,14 @@
-import React from "react";
+import React, { createContext } from "react";
 
-const ContextProvider = () => {
+export const AuthContext = createContext();
+const ContextProvider = ({ children }) => {
+  const user = {
+    displayName: "masud rana",
+    email: "mkmasudrana806@gmail.com",
+  };
+  const authInfo = { user };
   return (
-    <div>
-      <h3>this file provide always context for sharing without drell</h3>
-    </div>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
