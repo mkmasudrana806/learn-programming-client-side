@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../ContextProvider/ContextProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleCreateUser = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photourl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    createUser(email, password, photoURL, name)
+      .then((result) => {
+        const user = result.user;
+        console.log("user register success");
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+    console.log(name, email, password);
+    form.reset();
+  };
+
   return (
     <div className="form-width">
       <h5 className="login">Sign Up</h5>
-      <Form className="mx-auto">
+      <Form className="mx-auto" onSubmit={handleCreateUser}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Your Name</Form.Label>
           <Form.Control
@@ -25,6 +46,15 @@ const Register = () => {
             required
           />
         </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPhotoURL">
+          <Form.Label>Your Photo URL</Form.Label>
+          <Form.Control
+            type="photo"
+            name="photourl"
+            placeholder="Your Photo URL"
+            required
+          />
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -37,7 +67,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
             type="checkbox"
-          required
+            required
             label="Accept Terms & Conditions"
           />
         </Form.Group>

@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../ContextProvider/ContextProvider";
 
 const Login = () => {
+  const { signInUser } = useContext(AuthContext);
+  const handleSignInUser = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log("user login success");
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="form-width">
       <h5 className="login">Log In</h5>
-      <Form className="mx-auto">
+      <Form onSubmit={handleSignInUser} className="mx-auto">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -29,7 +47,11 @@ const Login = () => {
         </Form.Group>
         <h6 className="text-primary">Forgot Password?</h6>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" required label="Accept Terms & Conditions" />
+          <Form.Check
+            type="checkbox"
+            required
+            label="Accept Terms & Conditions"
+          />
         </Form.Group>
         <div className="d-grid gap-2">
           <Button variant="primary" size="md" type="submit">
