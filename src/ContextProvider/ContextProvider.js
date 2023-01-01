@@ -3,9 +3,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -14,34 +16,54 @@ const auth = getAuth(app);
 
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   //create user with email and password
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // sigin exiting user with email and password
   const signInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // sign in with google
   const googleSignIn = (provider) => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
   // sign in github
   const githubSignIn = (provider) => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
   // log out accoutn
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
+
+  // update user profile
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
+  // verification of email
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
+  // on state changed funciton
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (curentUser) => {
-      setUser(curentUser);
+      if (curentUser === null || curentUser.emailVerified) {
+        setUser(curentUser);
+      }
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -55,6 +77,9 @@ const ContextProvider = ({ children }) => {
     googleSignIn,
     githubSignIn,
     logOut,
+    loading,
+    updateUserProfile,
+    verifyEmail,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

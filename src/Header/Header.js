@@ -85,12 +85,12 @@ const Header = () => {
                     Log Out
                   </Button>
                   {user?.photoURL ? (
-                    <Image
-                      className="text-light ms-3"
-                      style={{ width: "40px", height: "40px" }}
-                      roundedCircle
-                      src={user.photoURL}
-                    ></Image>
+                    <Link to='/profile'><Image
+                    className="text-light ms-3"
+                    style={{ width: "40px", height: "40px" }}
+                    roundedCircle
+                    src={user.photoURL}
+                  ></Image></Link>
                   ) : (
                     <FaUserAlt className="text-light ms-3"></FaUserAlt>
                   )}

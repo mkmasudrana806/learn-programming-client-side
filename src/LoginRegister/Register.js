@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/ContextProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [accepted, setAccepted] = useState(false);
+  const { createUser, updateUserProfile, verifyEmail } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
 
   // handle submit or create new user
   const handleCreateUser = (event) => {
@@ -14,16 +19,41 @@ const Register = () => {
     const photoURL = form.photourl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photoURL, email, password, event.target);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        form.reset();
+        setError("");
+        // console.log(user);
+        handleUpdateUserProfile(name, photoURL);
+        handleVerifyEmail();
+        toast.success("Sent and email please verify your email");
+        navigate("/login");
       })
+      .catch((error) => setError(error.message));
+  };
+  // update user profile
+  const handleUpdateUserProfile = (name, photourl) => {
+    const profile = {
+      displayName: name,
+      photoURL: photourl,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
       .catch((error) => console.error(error));
   };
+  // handle terms and conditon
+  const handleAccepted = (event) => {
+    setAccepted(event.target.checked);
+  };
 
+  // handle to email verification
+  const handleVerifyEmail = () => {
+    verifyEmail()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="form-width">
       <Form className="mx-auto" onSubmit={handleCreateUser}>
@@ -70,12 +100,23 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
             type="checkbox"
+            onClick={handleAccepted}
             required
-            label="Accept Terms & Conditions"
+            label={
+              <>
+                Accept: <Link to="/temrs">Terms & Conditions</Link>
+              </>
+            }
           />
         </Form.Group>
-        <div className="d-grid gap-2">
-          <Button variant="primary" type="submit" size="md">
+        <Form.Text className="text-danger">{error}</Form.Text>
+        <div className="d-grid gap-2 mt-2">
+          <Button
+            variant="primary"
+            type="submit"
+            size="md"
+            disabled={!accepted}
+          >
             Sign Up
           </Button>
         </div>

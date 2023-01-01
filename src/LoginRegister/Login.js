@@ -1,16 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../ContextProvider/ContextProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "@firebase/auth";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   // handle to user log in email with password
   const handleSignInUser = (event) => {
@@ -18,15 +23,21 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     signInUser(email, password)
       .then((result) => {
         const user = result.user;
-        navigate("/");
         form.reset();
+        setError("");
+        if (user.emailVerified) {
+          navigate(from, { replace: true });
+        } else {
+          toast.error(
+            "Please verified your email (also check your spam folder)"
+          );
+        }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
 
   // handle to google sign in
@@ -34,7 +45,6 @@ const Login = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
       })
       .catch((error) => console.error(error));
   };
@@ -44,7 +54,7 @@ const Login = () => {
     githubSignIn(githubProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
       })
       .catch((error) => console.error(error));
   };
@@ -71,15 +81,9 @@ const Login = () => {
           />
         </Form.Group>
         <h6 className="text-primary">Forgot Password?</h6>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            required
-            label="Accept Terms & Conditions"
-          />
-        </Form.Group>
+        <Form.Text className="text-danger mb-2">{error}</Form.Text>
         <div className="d-grid gap-2">
-          <Button variant="primary" size="md" type="submit">
+          <Button className="mt-2" variant="primary" size="md" type="submit">
             Sign In
           </Button>
         </div>

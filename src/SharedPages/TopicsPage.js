@@ -4,7 +4,7 @@ import "./TopicsPages.css";
 
 const TopicsPage = () => {
   const topics = useLoaderData();
-  console.log(topics);
+  // console.log(topics);
   return (
     <div>
       <h3 className="mb-5 bg-success p-2">

@@ -12,8 +12,11 @@ import Register from "../LoginRegister/Register";
 import ExerciseCart from "../Pages/ExerciseCart";
 import FAQ from "../Pages/FAQ";
 import PremiumExercise from "../Pages/PremiumExercise";
+import Profile from "../Pages/Profile";
+import TermsAndConditions from "../Pages/TermsAndConditions";
 import DetailsPage from "../SharedPages/DetailsPage";
 import TopicsPage from "../SharedPages/TopicsPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -51,7 +54,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/premiumExercise/:id",
-        element: <PremiumExercise></PremiumExercise>,
+        element: (
+          <PrivateRoute>
+            <PremiumExercise></PremiumExercise>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/exercise-category/${params.id}`);
         },
@@ -71,7 +78,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courseShow",
-        element: <CourseVideo></CourseVideo>,
+        element: (
+          <PrivateRoute>
+            <CourseVideo></CourseVideo>
+          </PrivateRoute>
+        ),
       },
       // routes for login and register
       {
@@ -99,6 +110,22 @@ export const router = createBrowserRouter([
         path: "/faq",
         element: <FAQ></FAQ>,
       },
+      {
+        path: "/terms",
+        element: <TermsAndConditions></TermsAndConditions>,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <div className="text-center text-danger fs-1 ">
+        This page is not defined. 404 not found!
+      </div>
+    ),
   },
 ]);

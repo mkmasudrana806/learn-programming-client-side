@@ -8,7 +8,9 @@ const Courses = () => {
   return (
     <div>
       <div>
-        <h4 className="mb-4 text-light bg-success p-2">There Are Many Courses Available for you!</h4>
+        <h4 className="mb-4 text-light bg-success p-2">
+          There Are Many Courses Available for you!
+        </h4>
         {
           <Row sm={1} md={2} lg={3} className="gy-4">
             {courses.map((course) => (
