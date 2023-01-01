@@ -1,13 +1,24 @@
-import React, { useState } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
 import "./Header.css";
 import logo from "../images/logo.png";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../ContextProvider/ContextProvider";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
   const [dark, setDark] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  // toggle button for dark and light
   const ToggleBtn = (e) => {
     setDark(e);
+  };
+
+  // handle to log out
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -53,6 +64,7 @@ const Header = () => {
             >
               FAQ
             </NavLink>
+            <NavLink>{user?.displayName}</NavLink>
           </Nav>
           <Nav>
             <span className="me-3">
@@ -66,24 +78,44 @@ const Header = () => {
                 </Button>
               )}
             </span>
-            <span className="mt-1">
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive ? "activeColor" : undefined
-                }
-              >
-                <span>Log In</span>
-              </NavLink>
-              <NavLink
-                to="/register"
-                className={({ isActive }) =>
-                  isActive ? "activeColor" : undefined
-                }
-              >
-                Register
-              </NavLink>
-            </span>
+            <div>
+              {user?.uid ? (
+                <>
+                  <Button onClick={handleLogOut} variant="outline-success">
+                    Log Out
+                  </Button>
+                  {user?.photoURL ? (
+                    <Image
+                      className="text-light ms-3"
+                      style={{ width: "40px", height: "40px" }}
+                      roundedCircle
+                      src={user.photoURL}
+                    ></Image>
+                  ) : (
+                    <FaUserAlt className="text-light ms-3"></FaUserAlt>
+                  )}
+                </>
+              ) : (
+                <div className="mt-1">
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive ? "activeColor" : undefined
+                    }
+                  >
+                    <span>Log In</span>
+                  </NavLink>
+                  <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                      isActive ? "activeColor" : undefined
+                    }
+                  >
+                    Register
+                  </NavLink>
+                </div>
+              )}
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

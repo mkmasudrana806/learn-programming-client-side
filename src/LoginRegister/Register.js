@@ -6,6 +6,7 @@ import { AuthContext } from "../ContextProvider/ContextProvider";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
+  // handle submit or create new user
   const handleCreateUser = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,21 +14,20 @@ const Register = () => {
     const photoURL = form.photourl.value;
     const email = form.email.value;
     const password = form.password.value;
-    createUser(email, password, photoURL, name)
+    console.log(name, photoURL, email, password, event.target);
+
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log("user register success");
         console.log(user);
       })
       .catch((error) => console.error(error));
-    console.log(name, email, password);
-    form.reset();
   };
 
   return (
     <div className="form-width">
-      <h5 className="login">Sign Up</h5>
       <Form className="mx-auto" onSubmit={handleCreateUser}>
+        <h5 className="login">Sign Up</h5>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Your Name</Form.Label>
           <Form.Control
@@ -37,6 +37,17 @@ const Register = () => {
             required
           />
         </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPhotoURL">
+          <Form.Label>Your Photo URL</Form.Label>
+          <Form.Control
+            type="text"
+            name="photourl"
+            placeholder="Your Photo URL"
+            required
+          />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -46,15 +57,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPhotoURL">
-          <Form.Label>Your Photo URL</Form.Label>
-          <Form.Control
-            type="photo"
-            name="photourl"
-            placeholder="Your Photo URL"
-            required
-          />
-        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control

@@ -5,8 +5,9 @@ const FAQ = () => {
   const { user } = useContext(AuthContext);
   return (
     <div>
-      <h3>{user.displayName}</h3>
-      <p>Email: {user.email}</p>
+      {/* <h3>{user.displayName}</h3>
+      <p>Email: {user.email}</p> */}
+      <p>this is faq page</p>
     </div>
   );
 };

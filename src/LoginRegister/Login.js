@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../ContextProvider/ContextProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "@firebase/auth";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
+
+  // handle to user log in email with password
   const handleSignInUser = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,16 +23,35 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log("user login success");
-        console.log(user);
+        navigate("/");
         form.reset();
+      })
+      .catch((error) => console.error(error));
+  };
+
+  // handle to google sign in
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  //handle to github sign in
+  const handleGithubSignIn = () => {
+    githubSignIn(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
       })
       .catch((error) => console.error(error));
   };
   return (
     <div className="form-width">
-      <h5 className="login">Log In</h5>
       <Form onSubmit={handleSignInUser} className="mx-auto">
+        <h5 className="login">Log In</h5>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -58,20 +83,27 @@ const Login = () => {
             Sign In
           </Button>
         </div>
-
-        <p className="mt-2">
-          Don't Have An Account? <Link to="/register">Create New Account</Link>
-        </p>
-        <p className="or">Or</p>
-        <div className="d-grid gap-2">
-          <Button variant="outline-success" size="md">
-            <FaGoogle></FaGoogle> Sign in with Google
-          </Button>
-          <Button variant="outline-success" size="md">
-            <FaGithub></FaGithub> Sign in with GitHub
-          </Button>
-        </div>
       </Form>
+      <p className="mt-2">
+        Don't Have An Account? <Link to="/register">Create New Account</Link>
+      </p>
+      <p className="or">Or</p>
+      <div className="d-grid gap-2">
+        <Button
+          onClick={handleGoogleSignIn}
+          variant="outline-success"
+          size="md"
+        >
+          <FaGoogle></FaGoogle> Sign in with Google
+        </Button>
+        <Button
+          onClick={handleGithubSignIn}
+          variant="outline-success"
+          size="md"
+        >
+          <FaGithub></FaGithub> Sign in with GitHub
+        </Button>
+      </div>
     </div>
   );
 };
