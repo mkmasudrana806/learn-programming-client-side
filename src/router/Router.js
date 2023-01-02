@@ -14,6 +14,7 @@ import FAQ from "../Pages/FAQ";
 import PremiumExercise from "../Pages/PremiumExercise";
 import Profile from "../Pages/Profile";
 import TermsAndConditions from "../Pages/TermsAndConditions";
+import PDF from "../PDF";
 import DetailsPage from "../SharedPages/DetailsPage";
 import TopicsPage from "../SharedPages/TopicsPage";
 import PrivateRoute from "./PrivateRoute";
@@ -117,6 +118,10 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "/pdf",
+        element: <PDF></PDF>,
       },
     ],
   },

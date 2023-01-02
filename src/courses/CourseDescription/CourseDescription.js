@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "./CourseDescription.css";
 import { FaCheck, FaFilePdf, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Button } from "react-bootstrap";
+import ReactToPrint from "react-to-print";
 
 const CourseDescription = () => {
   const course = useLoaderData();
@@ -16,13 +17,21 @@ const CourseDescription = () => {
     rating,
     review,
   } = course;
+
+  const ref = useRef();
+
   return (
     <div className="course_description">
       <h4>Description of This Course</h4>
-      <Button variant="primary">
-        <FaFilePdf className="text-info"> </FaFilePdf> Print As PDF{" "}
-      </Button>{" "}
-      <div>
+      <ReactToPrint
+        trigger={() => (
+          <Button variant="primary">
+            <FaFilePdf className="text-info"> </FaFilePdf> Print As PDF
+          </Button>
+        )}
+        content={() => ref.current}
+      ></ReactToPrint>
+      <div className="p-2" ref={ref}>
         <img
           className="mt-3"
           style={{ width: "340px", height: "250px" }}
