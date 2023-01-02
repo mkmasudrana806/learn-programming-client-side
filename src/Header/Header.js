@@ -67,54 +67,59 @@ const Header = () => {
             <NavLink>{user?.displayName}</NavLink>
           </Nav>
           <Nav>
-            <span className="me-3">
-              {dark ? (
-                <Button onClick={() => ToggleBtn(false)} variant="dark">
-                  Light
-                </Button>
-              ) : (
-                <Button onClick={() => ToggleBtn(true)} variant="light">
-                  Dark
-                </Button>
-              )}
-            </span>
-            <div>
-              {user?.uid ? (
-                <>
-                  <Button onClick={handleLogOut} variant="outline-success">
-                    Log Out
+            <div className="d-flex">
+              {" "}
+              <span className="me-3">
+                {dark ? (
+                  <Button onClick={() => ToggleBtn(false)} variant="dark">
+                    Light
                   </Button>
-                  {user?.photoURL ? (
-                    <Link to='/profile'><Image
-                    className="text-light ms-3"
-                    style={{ width: "40px", height: "40px" }}
-                    roundedCircle
-                    src={user.photoURL}
-                  ></Image></Link>
-                  ) : (
-                    <FaUserAlt className="text-light ms-3"></FaUserAlt>
-                  )}
-                </>
-              ) : (
-                <div className="mt-1">
-                  <NavLink
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive ? "activeColor" : undefined
-                    }
-                  >
-                    <span>Log In</span>
-                  </NavLink>
-                  <NavLink
-                    to="/register"
-                    className={({ isActive }) =>
-                      isActive ? "activeColor" : undefined
-                    }
-                  >
-                    Register
-                  </NavLink>
-                </div>
-              )}
+                ) : (
+                  <Button onClick={() => ToggleBtn(true)} variant="light">
+                    Dark
+                  </Button>
+                )}
+              </span>
+              <div>
+                {user?.uid ? (
+                  <>
+                    <Button onClick={handleLogOut} variant="outline-success">
+                      Log Out
+                    </Button>
+                    {user?.photoURL ? (
+                      <Link to="/profile">
+                        <Image
+                          className="text-light ms-3"
+                          style={{ width: "40px", height: "40px" }}
+                          roundedCircle
+                          src={user.photoURL}
+                        ></Image>
+                      </Link>
+                    ) : (
+                      <FaUserAlt className="text-light ms-3"></FaUserAlt>
+                    )}
+                  </>
+                ) : (
+                  <div className="mt-1">
+                    <NavLink
+                      to="/login"
+                      className={({ isActive }) =>
+                        isActive ? "activeColor" : undefined
+                      }
+                    >
+                      <span>Log In</span>
+                    </NavLink>
+                    <NavLink
+                      to="/register"
+                      className={({ isActive }) =>
+                        isActive ? "activeColor" : undefined
+                      }
+                    >
+                      Register
+                    </NavLink>
+                  </div>
+                )}
+              </div>
             </div>
           </Nav>
         </Navbar.Collapse>

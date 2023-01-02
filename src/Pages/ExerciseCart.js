@@ -40,3 +40,5 @@ const ExerciseCart = () => {
 };
 
 export default ExerciseCart;
+
+

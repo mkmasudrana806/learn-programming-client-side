@@ -1,11 +1,12 @@
 import React, { useContext, useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/ContextProvider";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const [name, setName] = useState(user?.displayName);
-  const photoURLRef = useRef(user.photoURL);
+  const photoURLRef = useRef(user?.photoURL);
 
   const handleToSubmit = (event) => {
     event.preventDefault();
@@ -17,6 +18,7 @@ const Profile = () => {
     setName(event.target.value);
   };
 
+  // handle reset password
   return (
     <Form onSubmit={handleToSubmit}>
       <h4 className="mb-4 text-light bg-success p-2">
@@ -51,7 +53,10 @@ const Profile = () => {
         />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Update Profile
+      </Button>
+      <Button variant="primary ms-2">
+        <Link to="/resetPassword">Update Password</Link>
       </Button>
     </Form>
   );

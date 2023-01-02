@@ -9,7 +9,8 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn, githubSignIn, resetPassword } =
+    useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
@@ -58,6 +59,7 @@ const Login = () => {
       })
       .catch((error) => console.error(error));
   };
+
   return (
     <div className="form-width">
       <Form onSubmit={handleSignInUser} className="mx-auto">
@@ -80,7 +82,9 @@ const Login = () => {
             required
           />
         </Form.Group>
-        <h6 className="text-primary">Forgot Password?</h6>
+        <Link to="/resetPassword" className="text-primary">
+          Forgot Password?
+        </Link>
         <Form.Text className="text-danger mb-2">{error}</Form.Text>
         <div className="d-grid gap-2">
           <Button className="mt-2" variant="primary" size="md" type="submit">

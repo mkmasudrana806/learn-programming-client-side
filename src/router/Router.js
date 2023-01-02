@@ -9,12 +9,12 @@ import Home from "../Home/Home";
 import Main from "../layout/Main";
 import Login from "../LoginRegister/Login";
 import Register from "../LoginRegister/Register";
+import ResetPasswordPage from "../LoginRegister/ResetPasswordPage";
 import ExerciseCart from "../Pages/ExerciseCart";
 import FAQ from "../Pages/FAQ";
 import PremiumExercise from "../Pages/PremiumExercise";
 import Profile from "../Pages/Profile";
 import TermsAndConditions from "../Pages/TermsAndConditions";
-import PDF from "../PDF";
 import DetailsPage from "../SharedPages/DetailsPage";
 import TopicsPage from "../SharedPages/TopicsPage";
 import PrivateRoute from "./PrivateRoute";
@@ -120,8 +120,8 @@ export const router = createBrowserRouter([
         element: <Profile></Profile>,
       },
       {
-        path: "/pdf",
-        element: <PDF></PDF>,
+        path: "/resetPassword",
+        element: <ResetPasswordPage></ResetPasswordPage>,
       },
     ],
   },

@@ -28,7 +28,9 @@ const Register = () => {
         // console.log(user);
         handleUpdateUserProfile(name, photoURL);
         handleVerifyEmail();
-        toast.success("Sent and email please verify your email");
+        toast.success(
+          "Sent an email please verify your email(also check spam folder)."
+        );
         navigate("/login");
       })
       .catch((error) => setError(error.message));
