@@ -22,7 +22,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
+        // const user = result.user;
         form.reset();
         setError("");
         // console.log(user);

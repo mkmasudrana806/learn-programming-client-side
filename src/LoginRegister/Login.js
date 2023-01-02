@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { signInUser, googleSignIn, githubSignIn, resetPassword } =
+  const { signInUser, googleSignIn, githubSignIn } =
     useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -45,7 +45,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn(googleProvider)
       .then((result) => {
-        const user = result.user;
+        // const user = result.user;
       })
       .catch((error) => console.error(error));
   };
@@ -54,7 +54,7 @@ const Login = () => {
   const handleGithubSignIn = () => {
     githubSignIn(githubProvider)
       .then((result) => {
-        const user = result.user;
+        // const user = result.user;
         // console.log(user);
       })
       .catch((error) => console.error(error));

@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
+import FooterCom from "../Pages/FooterCom";
 import "./Main.css";
 
 const Main = () => {
@@ -21,6 +22,11 @@ const Main = () => {
           </Col>
         </Row>
       </Container>
+      <div className="bg-dark">
+        <Container>
+          <FooterCom></FooterCom>
+        </Container>
+      </div>
     </div>
   );
 };

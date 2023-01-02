@@ -64,7 +64,6 @@ const Header = () => {
             >
               FAQ
             </NavLink>
-            <NavLink>{user?.displayName}</NavLink>
           </Nav>
           <Nav>
             <div className="d-flex">
