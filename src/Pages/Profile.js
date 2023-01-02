@@ -4,21 +4,26 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/ContextProvider";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, updateUserProfile } = useContext(AuthContext);
   const [name, setName] = useState(user?.displayName);
-  const photoURLRef = useRef(user?.photoURL);
 
+  // handle user update profile
   const handleToSubmit = (event) => {
     event.preventDefault();
-    console.log(name);
-    console.log(photoURLRef.current.value);
+    const form = event.target;
+    const fullName = form.name.value;
+    const photoURL = form.photourl.value;
+    const profile = {
+      displayName: fullName,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {
+        setName(fullName);
+      })
+      .catch((error) => console.error(error));
   };
 
-  const handleOnChanged = (event) => {
-    setName(event.target.value);
-  };
-
-  // handle reset password
   return (
     <Form onSubmit={handleToSubmit}>
       <h4 className="mb-4 text-light bg-success p-2">
@@ -37,17 +42,17 @@ const Profile = () => {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Your Name</Form.Label>
         <Form.Control
-          onChange={handleOnChanged}
           type="text"
+          name="name"
           defaultValue={name}
-          placeholder="Name"
+          placeholder="Your Name"
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Photo URL</Form.Label>
         <Form.Control
-          ref={photoURLRef}
           type="text"
+          name="photourl"
           defaultValue={user?.photoURL}
           placeholder="Photo URL"
         />
