@@ -14,7 +14,7 @@ const Main = () => {
       </div>
       <Container>
         <Row>
-          <Col lg="3" className="leftNav">
+          <Col lg="3" className="leftNav d-none d-lg-block">
             <LeftSideNav></LeftSideNav>
           </Col>
           <Col lg="9">
@@ -22,7 +22,7 @@ const Main = () => {
           </Col>
         </Row>
       </Container>
-      <div className="bg-dark">
+      <div className="footer">
         <Container>
           <FooterCom></FooterCom>
         </Container>

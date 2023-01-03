@@ -5,6 +5,7 @@ import logo from "../images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/ContextProvider";
 import { FaUserAlt } from "react-icons/fa";
+import LeftSideNav from "../LeftSideNav/LeftSideNav";
 
 const Header = () => {
   const [dark, setDark] = useState(false);
@@ -20,8 +21,10 @@ const Header = () => {
       .then(() => {})
       .catch((error) => console.error(error));
   };
+
+  // here is the component reutrned part
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>
           <img
@@ -66,7 +69,7 @@ const Header = () => {
             </NavLink>
           </Nav>
           <Nav>
-            <div className="d-flex">
+            <div className="d-flex mb-lg-0 mb-3">
               {" "}
               <span className="me-3">
                 {dark ? (
@@ -82,7 +85,7 @@ const Header = () => {
               <div>
                 {user?.uid ? (
                   <>
-                    <Button onClick={handleLogOut} variant="outline-success">
+                    <Button onClick={handleLogOut} variant="outline-dark">
                       Log Out
                     </Button>
                     {user?.photoURL ? (
@@ -121,6 +124,9 @@ const Header = () => {
               </div>
             </div>
           </Nav>
+          <div className="d-lg-none">
+            <LeftSideNav></LeftSideNav>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
