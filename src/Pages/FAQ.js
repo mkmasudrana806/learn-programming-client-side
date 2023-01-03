@@ -5,6 +5,9 @@ const FAQ = () => {
   const { user } = useContext(AuthContext);
   return (
     <div>
+      <h4 className="mb-4 text-light bg-success p-2">
+        Some Frequently Ask Question
+      </h4>
       <h3>What is the main purpose of this Website?</h3>
       <p>
         The Main Purpose of this website is the student to learn programming
@@ -23,7 +26,7 @@ const FAQ = () => {
         covered many courses like react, python, AWS, data Science and Full
         Stack Web Development
       </p>
-      <h3>Which courses or tutorials or exercise is free ? </h3>
+      <h3>Which courses or tutorials or exercise is free or premium ? </h3>
       <p>
         All the totorials are free and blogs and some exercise but courses are
         premium

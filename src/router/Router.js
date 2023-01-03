@@ -28,21 +28,28 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/categories"),
+        loader: () =>
+          fetch(
+            "https://b610-lerning-platform-server-side-blond-one.vercel.app/categories"
+          ),
       },
       // routes for tutorials categories and tutorials
       {
         path: "/category/:id",
         element: <TopicsPage></TopicsPage>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/category/${params.id}`);
+          return fetch(
+            `https://b610-lerning-platform-server-side-blond-one.vercel.app/category/${params.id}`
+          );
         },
       },
       {
         path: "/topic-details/:id",
         element: <DetailsPage></DetailsPage>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/topic-details/${params.id}`);
+          return fetch(
+            `https://b610-lerning-platform-server-side-blond-one.vercel.app/topic-details/${params.id}`
+          );
         },
       },
       // routes for exercise (left navbar )
@@ -50,7 +57,9 @@ export const router = createBrowserRouter([
         path: "/exercise-category/:id",
         element: <ExerciseCart></ExerciseCart>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/exercise-category/${params.id}`);
+          return fetch(
+            `https://b610-lerning-platform-server-side-blond-one.vercel.app/exercise-category/${params.id}`
+          );
         },
       },
       {
@@ -61,20 +70,27 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/exercise-category/${params.id}`);
+          return fetch(
+            `https://b610-lerning-platform-server-side-blond-one.vercel.app/exercise-category/${params.id}`
+          );
         },
       },
       // routes for courses
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () =>
+          fetch(
+            "https://b610-lerning-platform-server-side-blond-one.vercel.app/courses"
+          ),
       },
       {
         path: "/course/:id",
         element: <CourseDescription></CourseDescription>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/course/${params.id}`);
+          return fetch(
+            `https://b610-lerning-platform-server-side-blond-one.vercel.app/course/${params.id}`
+          );
         },
       },
       {
@@ -98,13 +114,18 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
-        loader: () => fetch("http://localhost:5000/blogs"),
+        loader: () =>
+          fetch(
+            "https://b610-lerning-platform-server-side-blond-one.vercel.app/blogs"
+          ),
       },
       {
         path: "/blog/:id",
         element: <BlogDetails></BlogDetails>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/blog/${params.id}`);
+          return fetch(
+            `https://b610-lerning-platform-server-side-blond-one.vercel.app/blog/${params.id}`
+          );
         },
       },
       {

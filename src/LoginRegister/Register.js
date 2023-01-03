@@ -61,7 +61,7 @@ const Register = () => {
       <Form className="mx-auto" onSubmit={handleCreateUser}>
         <h5 className="login">Sign Up</h5>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Your Name</Form.Label>
+          <Form.Label>Full Name</Form.Label>
           <Form.Control
             type="name"
             name="name"
@@ -106,7 +106,7 @@ const Register = () => {
             required
             label={
               <>
-                Accept: <Link to="/temrs">Terms & Conditions</Link>
+                Accept <Link to="/terms">Terms And Conditions</Link>
               </>
             }
           />

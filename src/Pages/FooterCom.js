@@ -65,7 +65,10 @@ const FooterCom = () => {
               <Link to="/mern">MERN Stack</Link>
             </p>
             <p>
-              <Link to="/contact">Data Scienc</Link>
+              <Link to="/contact">Data Science</Link>
+            </p>
+            <p>
+              <Link to="/contact">AWS</Link>
             </p>
           </div>
         </Col>
