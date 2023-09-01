@@ -1,6 +1,12 @@
 ### Project Information
 
+### Course Section
+
 ![Alt Text](https://i.ibb.co/b2cNdCW/image.png)
+
+### Home page
+
+![Alt Text](https://i.ibb.co/xSFPFDT/image.png)
 
 Learn Programming is an educational platform for programmers, developers, and students. Where they can learn tutorials, programming exercises, and courses. fully responsive and single-page web application. 
 
