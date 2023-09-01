@@ -1,26 +1,8 @@
 ### Project Information
 
-Learn Programming is an educational platform for programmers, developers, and students. Where they can learn tutorials, programming exercises, and courses. fully responsive and single-page web application. 
-
 Project Name: `Learning Programming Application`
 
-Live Site Link: https://learn-programming-project.web.app/
-
-Server Repo Link: https://github.com/mkmasudrana806/learn-programming-server-side
-
-Developed by `Web Technologies`
-
-Project Type: `Web Application`
-
-Site Type: `Educational Site`
-
-### Course Section
-
-![Alt Text](https://i.ibb.co/b2cNdCW/image.png)
-
-### Home page
-
-![Alt Text](https://i.ibb.co/xSFPFDT/image.png)
+`Learn Programming` is an educational platform for programmers, developers, and students. Where they can learn tutorials, programming exercises, and courses. premium services are privately protected. fully responsive and single-page web application. 
 
 ### Tools and Technologies (Library and Framework)
 1. VS code
@@ -40,9 +22,29 @@ Site Type: `Educational Site`
    
 ### Discussion of this project
 I have developed an educational web application. In this application, I have added some programming languages for learning, like programming language exercises, tutorials, and some premium courses.
-On the home page, some data will be preloaded, like exercises on the left side and many tutorials.Each totorial shows a cart with well-known details. Learners will learn smartly.
+On the home page, some data will be preloaded, like exercises on the left side and many tutorials. Each tutorial shows a cart with well-known details. Learners will learn smartly.
 In the exercise section, I have done it as `Premium`. Whoever does not have an account on this site cannot access these `premium exercises`.
-In the header section contains `courses`, `blogs`, and `FAQ`, as well as `login`, `log out`, `register`, and `profile icons`, and one toggle button for `dark and light` mode.
+The header section contains `courses`, `blogs`, and `FAQ`, as well as `login`, `log out`, `register`, and `profile icons`, and one toggle button for `dark and light` mode.
 In the Login and Register form, there is a toggle button and a forgot `password` system, and you can sign in with the Google and GitHub systems.
 In the `profile` section, there are two features: one is `update profile`, and the second is `update password`.
-In the courses section, each course has two clickable buttons:` description` and purchase. Without a login, learners can see course descriptions but have no access. They must have an account as a login; otherwise, they cannot access them. because this is a private route. Anyone can print the course description` as a pdf.
+In the courses section, each course has two clickable buttons:` description` and purchase. Without a login, learners can see course descriptions but have no access. They must have an account as a login; otherwise, they cannot access them. because this is a private route. Anyone can print the course description` as a PDF.
+
+### Important Link of this Project
+Live Site Link: https://learn-programming-project.web.app/
+
+Client Repo Link: https://github.com/mkmasudrana806/learn-programming-client-side
+
+Server Repo Link: https://github.com/mkmasudrana806/learn-programming-server-side
+
+
+### Home Page
+![Home Page](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/9b1f6938-afcf-48d2-93fe-06a91627c5b7)
+
+### Courses section 
+![Courses section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/307fbdc9-3377-4a7d-94b6-73918451e8ca)
+
+## Tutorials Section 
+![Tutorials section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/e37134b8-c0e2-4d90-acb5-54566ed683d5)
+
+
+
