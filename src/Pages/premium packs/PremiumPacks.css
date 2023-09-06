@@ -35,3 +35,9 @@
   width: 100%;
   padding: 0 8px 10px 8px;
 }
+
+@media (max-width: 537px) {
+  .card-img img {
+    height: 190px;
+  }
+}

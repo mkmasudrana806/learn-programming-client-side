@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem;
+  width: 100%;
 }
 .annual,
 .training {
@@ -9,12 +10,13 @@
   color: gainsboro;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  width: 100%;
 }
 
-.annual:hover img, .training:hover img{
+.annual:hover img,
+.training:hover img {
   transform: scale(1.1);
-transition: .3s;
+  transition: 0.3s;
 }
 .annual img,
 .training img {

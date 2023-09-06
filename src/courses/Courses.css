@@ -48,3 +48,15 @@
   -webkit-box-orient: vertical;
   white-space: normal;
 }
+
+@media (max-width: 992px) {
+  .course-img img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-img img {
+    height: 180px;
+  }
+}

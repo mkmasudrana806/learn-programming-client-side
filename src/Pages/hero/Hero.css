@@ -25,9 +25,30 @@
   padding: 0.8rem 0;
 }
 
-.hero a{
+.hero a {
   font-size: 1.2rem;
 }
 .hero button {
   font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .hero-info h3 {
+    font-size: 2rem;
+  }
+  .hero-info p {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-img {
+    display: none;
+  }
 }
