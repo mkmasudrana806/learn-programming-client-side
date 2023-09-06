@@ -1,0 +1,14 @@
+.why-learn-prog-container {
+  margin: 30px 0px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.why-learn-prog-container div {
+  border: 1px solid gainsboro;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+

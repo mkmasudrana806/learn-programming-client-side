@@ -1,0 +1,19 @@
+.membership {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1rem;
+}
+.annual,
+.training {
+  background-color: #3b4c86;
+  color: gainsboro;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.annual img , .training img{
+  width: 40%;
+  height: auto;
+  border-radius: 5px;
+}

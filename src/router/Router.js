@@ -18,6 +18,7 @@ import TermsAndConditions from "../Pages/TermsAndConditions";
 import DetailsPage from "../SharedPages/DetailsPage";
 import TopicsPage from "../SharedPages/TopicsPage";
 import PrivateRoute from "./PrivateRoute";
+import HomeLayout from "../layout/HomeLayout";
 
 export const router = createBrowserRouter([
   {
@@ -25,13 +26,17 @@ export const router = createBrowserRouter([
     element: <Main></Main>,
     children: [
       // home route
+      // {
+      //   path: "/",
+      //   element: <Home></Home>,
+      //   loader: () =>
+      //     fetch(
+      //       "https://b610-lerning-platform-server-side-blond-one.vercel.app/categories"
+      //     ),
+      // },
       {
         path: "/",
-        element: <Home></Home>,
-        loader: () =>
-          fetch(
-            "https://b610-lerning-platform-server-side-blond-one.vercel.app/categories"
-          ),
+        element: <HomeLayout></HomeLayout>,
       },
       // routes for tutorials categories and tutorials
       {

@@ -1,0 +1,30 @@
+.hero {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 2rem;
+  padding: 50px 0px;
+}
+.hero-info {
+  width: 100%;
+}
+.hero-img {
+  width: 100%;
+}
+.hero-img img {
+  width: 100%;
+  height: auto;
+}
+
+.hero-info h3 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.hero-info p {
+  padding: 0.8rem 0;
+}
+
+.hero button {
+  font-size: 1.2rem;
+}

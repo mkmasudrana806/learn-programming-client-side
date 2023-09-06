@@ -1,0 +1,54 @@
+.ecosystem {
+  padding: 50px 0px;
+}
+.ecosystem-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ecosystem-card-containers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.8rem;
+  padding: 20px 0px;
+}
+
+.ecosystem-card{
+  display: flex;
+  column-gap: 0.7rem;
+  align-items: center;
+  padding: 10px;
+   border-radius: 5px;
+   font-weight: 500;
+   color: white;
+}
+
+.ecosystem-card, .bx{
+font-size: 3.5rem;
+}
+
+.ecosystem-card p{
+  margin: 0;
+}
+
+.ecosystem-card h3{
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.ecosystem-card:first-child {
+  background-color: rgb(119, 90, 133);
+}
+
+.ecosystem-card:nth-child(2) {
+  background-color: #3b4c86;
+}
+
+.ecosystem-card:nth-child(3) {
+  background-color: rgb(64, 140, 170);
+}
+
+.ecosystem-card:last-child {
+  background-color: rgb(86, 98, 99);
+}
+

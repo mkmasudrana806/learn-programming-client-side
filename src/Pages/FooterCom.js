@@ -7,7 +7,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const FooterCom = () => {
   return (
     <div>
-      <Row className="mt-5 footer pt-5 pb-3">
+      <Row className="mt-5 footer pt-5 pb-3 text-white">
         <Col lg="5">
           <div>
             <div className="d-flex align-items-center mb-2">
