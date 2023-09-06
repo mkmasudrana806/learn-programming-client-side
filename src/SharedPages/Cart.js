@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, NavLink, Row } from "react-bootstrap";
+import { Button, Col} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 
@@ -12,7 +12,7 @@ const Cart = ({ category }) => {
       <div className="language_cart">
         <img src={photo_url} alt="" />
         <div className="languageInfo">
-          <h5 className="text-ellipsis-1"> {language_name}</h5>
+          <h4 className="text-ellipsis-1"> {language_name}</h4>
           <p>
             <b>Rating: </b> {rating}
           </p>
@@ -20,8 +20,8 @@ const Cart = ({ category }) => {
             <b>View: </b> {total_view}K
           </p>
 
-          <Button variant="success">
-            <Link to={`/category/${language_id}`}>Start Toturials</Link>
+          <Button variant="primary">
+            <Link to={`category/${language_id}`}>Start Toturials</Link>
           </Button>
         </div>
       </div>

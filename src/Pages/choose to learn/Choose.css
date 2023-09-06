@@ -9,6 +9,8 @@
   border: 1px solid gainsboro;
   padding: 15px 10px;
   border-radius: 5px;
+  text-decoration: none;
+  color: #000;
 }
 
 .choose-item:hover{

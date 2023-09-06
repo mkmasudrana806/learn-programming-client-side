@@ -3,6 +3,7 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top:15px;
+
 }
 .language_cart img{
    width: 140px;
@@ -12,6 +13,7 @@
 }
 .language_cart p, h3,button{
     margin: 2px;
+    font-size: 1rem;
 }
 
 .languageInfo{

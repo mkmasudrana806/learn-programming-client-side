@@ -76,11 +76,11 @@ const CourseDescription = () => {
         </div>
       </div>
       <Button variant="primary">
-        <Link to="/courses">Back To Courses</Link>
+        <Link to="/learning/courses">Back To Courses</Link>
       </Button>{" "}
       <Button variant="primary">
         {" "}
-        <Link to="/courseShow">Purchanse</Link>{" "}
+        <Link to="/learning/courseShow">Purchanse</Link>{" "}
       </Button>{" "}
     </div>
   );

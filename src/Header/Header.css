@@ -7,7 +7,8 @@
     color: white;
 }
 .navitems a:hover{
-    color: rgb(68, 0, 255);
+    color:  rgba(255, 197, 7, 0.966);
+    transition: 0.3s;
 }
 .site-name{
     text-decoration: none;
@@ -18,5 +19,5 @@ color: rgb(0, 255, 106);
     color: #25f77c;
 }
 .activeColor{
-    border-bottom: 3px solid rgb(153, 0, 255);
+    border-bottom: 3px solid  #3b4c86;
 }

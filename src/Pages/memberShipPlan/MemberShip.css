@@ -12,7 +12,12 @@
   gap: 0.5rem;
 }
 
-.annual img , .training img{
+.annual:hover img, .training:hover img{
+  transform: scale(1.1);
+transition: .3s;
+}
+.annual img,
+.training img {
   width: 40%;
   height: auto;
   border-radius: 5px;

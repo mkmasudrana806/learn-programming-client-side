@@ -5,6 +5,7 @@ import { IoLogoJavascript } from "react-icons/io";
 import { FaJava } from "react-icons/fa";
 import cLogo from "../../../src/assets/c program.png";
 import cPlusLogo from "../../../src/assets/icons8-c++-48.png";
+import { Link } from "react-router-dom";
 
 const Choose = () => {
   return (
@@ -17,15 +18,24 @@ const Choose = () => {
         </h2>
       </div>
       <div className="choose-container my-4">
-        <div className="choose-item d-flex align-items-center px-3 py-2">
+        <Link
+          to={`/learning/category/01`}
+          className="choose-item d-flex align-items-center px-3 py-2"
+        >
           <IoLogoJavascript className="me-3 language-icon"></IoLogoJavascript>{" "}
           <p className="m-0">JavaScript</p>
-        </div>
-        <div className="choose-item d-flex align-items-center  px-3 py-2">
+        </Link>
+        <Link
+          to={`/learning/category/02`}
+          className="choose-item d-flex align-items-center  px-3 py-2"
+        >
           <FaJava className="me-3 language-icon"></FaJava>{" "}
           <p className="m-0">Java</p>
-        </div>
-        <div className="choose-item d-flex align-items-center px-3 py-2">
+        </Link>
+        <Link
+          to={`/learning/category/03`}
+          className="choose-item d-flex align-items-center px-3 py-2"
+        >
           <img
             style={{ width: "50px" }}
             className="me-3 language-icon"
@@ -33,8 +43,11 @@ const Choose = () => {
             alt=""
           />
           <p className="m-0">C Programming</p>
-        </div>
-        <div className="choose-item d-flex align-items-center px-3 py-2">
+        </Link>
+        <Link
+          to={`/learning/category/04`}
+          className="choose-item d-flex align-items-center px-3 py-2"
+        >
           <img
             style={{ width: "50px" }}
             className="me-3 language-icon"
@@ -42,7 +55,7 @@ const Choose = () => {
             alt=""
           />
           <p className="m-0">C++ Programming</p>
-        </div>
+        </Link>
       </div>
     </div>
   );

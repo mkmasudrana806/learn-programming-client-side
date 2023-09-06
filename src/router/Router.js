@@ -5,7 +5,6 @@ import Blogs from "../Blogs/Blogs";
 import CourseDescription from "../courses/CourseDescription/CourseDescription";
 import Courses from "../courses/Courses";
 import CourseVideo from "../courses/courseShow/CourseVideo";
-import Home from "../Home/Home";
 import Main from "../layout/Main";
 import Login from "../LoginRegister/Login";
 import Register from "../LoginRegister/Register";
@@ -19,98 +18,124 @@ import DetailsPage from "../SharedPages/DetailsPage";
 import TopicsPage from "../SharedPages/TopicsPage";
 import PrivateRoute from "./PrivateRoute";
 import HomeLayout from "../layout/HomeLayout";
+import LearningLayout from "../layout/LearningLayout";
+import Home from "../Home/Home";
+import Tutorials from "../tutorials/Tutorials";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
-      // home route
-      // {
-      //   path: "/",
-      //   element: <Home></Home>,
-      //   loader: () =>
-      //     fetch(
-      //       "https://b610-lerning-platform-server-side-blond-one.vercel.app/categories"
-      //     ),
-      // },
       {
         path: "/",
         element: <HomeLayout></HomeLayout>,
       },
-      // routes for tutorials categories and tutorials
       {
-        path: "/category/:id",
-        element: <TopicsPage></TopicsPage>,
-        loader: ({ params }) => {
-          return fetch(
-            `https://b610-lerning-platform-server-side-blond-one.vercel.app/category/${params.id}`
-          );
-        },
+        path: "/learning",
+        element: <LearningLayout></LearningLayout>,
+        children: [
+          // {
+          //   path: "/learning/",
+          //   element: <Home></Home>,
+          //   loader: () =>
+          //     fetch(
+          //       "https://b610-lerning-platform-server-side-blond-one.vercel.app/categories"
+          //     ),
+          // },
+          // routes for tutorials categories and tutorials
+          {
+            path: "/learning/",
+            element: <Tutorials></Tutorials>,
+            loader: () =>
+              fetch(
+                "https://b610-lerning-platform-server-side-blond-one.vercel.app/categories"
+              ),
+          },
+          {
+            path: "category/:id",
+            element: <TopicsPage></TopicsPage>,
+            loader: ({ params }) => {
+              return fetch(
+                `https://b610-lerning-platform-server-side-blond-one.vercel.app/category/${params.id}`
+              );
+            },
+          },
+          // category topic details
+          {
+            path: "/learning/topic-details/:id",
+            element: <DetailsPage></DetailsPage>,
+            loader: ({ params }) => {
+              return fetch(
+                `https://b610-lerning-platform-server-side-blond-one.vercel.app/topic-details/${params.id}`
+              );
+            },
+          },
+          // routes for exercise (left navbar )
+          {
+            path: "/learning/exercise-category/:id",
+            element: <ExerciseCart></ExerciseCart>,
+            loader: ({ params }) => {
+              return fetch(
+                `https://b610-lerning-platform-server-side-blond-one.vercel.app/exercise-category/${params.id}`
+              );
+            },
+          },
+          // premium exercise
+          {
+            path: "/learning/premiumExercise/:id",
+            element: (
+              <PrivateRoute>
+                <PremiumExercise></PremiumExercise>
+              </PrivateRoute>
+            ),
+            loader: ({ params }) => {
+              return fetch(
+                `https://b610-lerning-platform-server-side-blond-one.vercel.app/exercise-category/${params.id}`
+              );
+            },
+          },
+          // routes for courses
+          {
+            path: "/learning/courses",
+            element: <Courses></Courses>,
+            loader: () =>
+              fetch(
+                "https://b610-lerning-platform-server-side-blond-one.vercel.app/courses"
+              ),
+          },
+          // course description
+          {
+            path: "/learning/course/:id",
+            element: <CourseDescription></CourseDescription>,
+            loader: ({ params }) => {
+              return fetch(
+                `https://b610-lerning-platform-server-side-blond-one.vercel.app/course/${params.id}`
+              );
+            },
+          },
+          // show course
+          {
+            path: "/learning/courseShow",
+            element: (
+              <PrivateRoute>
+                <CourseVideo></CourseVideo>
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "/learning/tutorials",
+            element: <Home></Home>,
+          },
+        ],
       },
-      {
-        path: "/topic-details/:id",
-        element: <DetailsPage></DetailsPage>,
-        loader: ({ params }) => {
-          return fetch(
-            `https://b610-lerning-platform-server-side-blond-one.vercel.app/topic-details/${params.id}`
-          );
-        },
-      },
-      // routes for exercise (left navbar )
-      {
-        path: "/exercise-category/:id",
-        element: <ExerciseCart></ExerciseCart>,
-        loader: ({ params }) => {
-          return fetch(
-            `https://b610-lerning-platform-server-side-blond-one.vercel.app/exercise-category/${params.id}`
-          );
-        },
-      },
-      {
-        path: "/premiumExercise/:id",
-        element: (
-          <PrivateRoute>
-            <PremiumExercise></PremiumExercise>
-          </PrivateRoute>
-        ),
-        loader: ({ params }) => {
-          return fetch(
-            `https://b610-lerning-platform-server-side-blond-one.vercel.app/exercise-category/${params.id}`
-          );
-        },
-      },
-      // routes for courses
-      {
-        path: "/courses",
-        element: <Courses></Courses>,
-        loader: () =>
-          fetch(
-            "https://b610-lerning-platform-server-side-blond-one.vercel.app/courses"
-          ),
-      },
-      {
-        path: "/course/:id",
-        element: <CourseDescription></CourseDescription>,
-        loader: ({ params }) => {
-          return fetch(
-            `https://b610-lerning-platform-server-side-blond-one.vercel.app/course/${params.id}`
-          );
-        },
-      },
-      {
-        path: "/courseShow",
-        element: (
-          <PrivateRoute>
-            <CourseVideo></CourseVideo>
-          </PrivateRoute>
-        ),
-      },
+
       // routes for login and register
       {
         path: "/login",
         element: <Login></Login>,
       },
+      // register routes
       {
         path: "/register",
         element: <Register></Register>,

@@ -1,18 +1,30 @@
-.footer{
-    background: #3b4c86;
-}
-.footer div a{
-text-decoration: none;
+.footer {
+  background-color: #3b4c86;
 }
 
-.footer p{
-    margin-bottom: 3px;
+.footer h4,
+.footer h3,
+.footer p,
+.footer a {
+  color: gainsboro !important;
+}
+.footer div a {
+  text-decoration: none;
 }
 
-.footer-icons p{
-background-color: white;
-padding: 8px 13px 8px 13px;
-margin: 5px;
-border-radius: 50px;
-color: rgb(0, 81, 255);
+.social-icons img {
+  width: 48px;
+  height: 48px;
+}
+
+.footer h4 {
+  padding-top: 2rem;
+}
+
+.footer img {
+  margin-top: 1rem;
+}
+
+.footer p {
+  margin: 0px;
 }

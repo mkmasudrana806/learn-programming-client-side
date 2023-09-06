@@ -25,6 +25,9 @@
   padding: 0.8rem 0;
 }
 
+.hero a{
+  font-size: 1.2rem;
+}
 .hero button {
   font-size: 1.2rem;
 }

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./PremiumPacks.css";
 import { TbPackages } from "react-icons/tb";
-import {  FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 import SinglePack from "./SinglePack";
+import { Link } from "react-router-dom";
 
 const PremiumPacks = () => {
   // premium packs data load from backend
@@ -29,9 +30,9 @@ const PremiumPacks = () => {
           </div>
         </div>
         <div className="view-more">
-          <button className="btn btn-primary">
+          <Link to="/all-premium-packs" className="btn btn-primary">
             View More <FaArrowRightLong></FaArrowRightLong>
-          </button>
+          </Link>
         </div>
       </div>
       {/* premium packs container */}

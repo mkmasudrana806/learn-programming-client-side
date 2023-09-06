@@ -12,10 +12,10 @@ const HomeLayout = () => {
   return (
     <div>
       <Hero></Hero>
+      <WhyLearnProgramming></WhyLearnProgramming>
       <Choose></Choose>
       <TopCategories></TopCategories>
       <PremiumPacks></PremiumPacks>
-      <WhyLearnProgramming></WhyLearnProgramming>
       <Ecosystem></Ecosystem>
       <MemberShip></MemberShip>
     </div>

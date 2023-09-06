@@ -15,7 +15,7 @@ const Main = () => {
         <Header></Header>
       </div>
       <Container>
-        <HomeLayout></HomeLayout>
+        {/* <HomeLayout></HomeLayout> */}
         {/* <Row>
           <Col lg="3" className="leftNav d-none d-lg-block">
             <LeftSideNav></LeftSideNav>
@@ -24,6 +24,7 @@ const Main = () => {
             <Outlet></Outlet>
           </Col>
         </Row> */}
+        <Outlet></Outlet>
       </Container>
       {/* footer section  */}
       <div className="footer">

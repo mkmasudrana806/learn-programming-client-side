@@ -6,7 +6,7 @@ const Blogs = () => {
 
   return (
     <div>
-      <h4 className="mb-5 bg-success p-2 text-light">
+      <h4 className="mb-5 bg-primary p-2 text-light">
         There are {blogs.length} Blogs Avaiable For You!
       </h4>
       {/* map on blogs  */}

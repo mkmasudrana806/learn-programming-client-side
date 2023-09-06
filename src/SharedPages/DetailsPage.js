@@ -13,7 +13,7 @@ const DetailsPage = () => {
       <img src={photo_url} alt="" style={{ width: "100%" }} />
       <p className="mt-3">{details}</p>
       <Button variant="primary" size="sm">
-        <Link to="/"> Back To Home Page</Link>
+        <Link to="/learning"> Back To Home Page</Link>
       </Button>
     </div>
   );

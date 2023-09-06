@@ -32,7 +32,7 @@ const TopicsPage = () => {
           {topic.details?.length > 120 ? (
             <p>
               {topic.details?.slice(0, 120) + " ..."}
-              <Link to={`/topic-details/${topic._id}`}>Read More</Link>
+              <Link to={`/learning/topic-details/${topic._id}`}>Read More</Link>
             </p>
           ) : (
             <p>{topic.details}</p>

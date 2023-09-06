@@ -5,6 +5,7 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { ImPlay2 } from "react-icons/im";
 import { BiBookReader } from "react-icons/bi";
 import "./SinglePack.css";
+import { Link } from "react-router-dom";
 
 const SinglePack = ({ pack }) => {
   const {
@@ -40,9 +41,12 @@ const SinglePack = ({ pack }) => {
           <del className="fs-6 text-danger"> ${orginal_price}</del>{" "}
         </h5>
         <div className="premium-pack-btn ">
-          <button className="btn btn-outline-primary fw-bold w-100">
+          <Link
+            to="premium-pack-details"
+            className="btn btn-primary fw-bold w-100"
+          >
             <FaArrowUpRightFromSquare></FaArrowUpRightFromSquare> More Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>

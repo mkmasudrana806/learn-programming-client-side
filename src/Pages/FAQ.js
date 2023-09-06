@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../ContextProvider/ContextProvider";
+import React from "react";
 
 const FAQ = () => {
-  const { user } = useContext(AuthContext);
   return (
     <div>
-      <h4 className="mb-4 text-light bg-success p-2">
+      <h4 className="mb-4 text-light bg-primary p-2">
         Some Frequently Ask Question
       </h4>
       <h3>What is the main purpose of this Website?</h3>

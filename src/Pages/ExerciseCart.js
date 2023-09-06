@@ -4,11 +4,11 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ExerciseCart = () => {
   const exercises = useLoaderData();
-  const { exercise_id, exercise_name, covered_topics, joined, examples } =
+  const { exercise_name, covered_topics, examples } =
     exercises;
   return (
     <Card>
-      <Card.Header as="h4" className="bg-success text-light mb-3 p-2">
+      <Card.Header as="h4" className="bg-primary text-light mb-3 p-2">
         {exercise_name}
       </Card.Header>
       <Card.Body>
@@ -18,20 +18,20 @@ const ExerciseCart = () => {
           Following {examples.length} Exercise Will Coverd.{" "}
         </Card.Title>
         <div>
-            <ol>
-              <li>{examples[0]}</li>
-              <li>{examples[1]}</li>
-              <li>{examples[2]}</li>
-              <li>
-                {examples[3].length > 30 && (
-                  <>
-                    <span>{examples[3].slice(0, 30) + "....."}</span>
-                  </>
-                )}
-              </li>
-            </ol>
+          <ol>
+            <li>{examples[0]}</li>
+            <li>{examples[1]}</li>
+            <li>{examples[2]}</li>
+            <li>
+              {examples[3].length > 30 && (
+                <>
+                  <span>{examples[3].slice(0, 30) + "....."}</span>
+                </>
+              )}
+            </li>
+          </ol>
         </div>
-        <Link to={`/premiumExercise/${exercises.exercise_id}`}>
+        <Link to={`/learning/premiumExercise/${exercises.exercise_id}`}>
           <Button variant="primary">Get Premium Access</Button>
         </Link>
       </Card.Body>
@@ -40,5 +40,3 @@ const ExerciseCart = () => {
 };
 
 export default ExerciseCart;
-
-

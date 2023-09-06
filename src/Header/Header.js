@@ -47,9 +47,17 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeColor" : undefined
               }
-              to="/courses"
+              to="/learning/courses"
             >
               Courses
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "activeColor" : undefined
+              }
+              to="/learning/"
+            >
+              Tutorials
             </NavLink>
             <NavLink
               className={({ isActive }) =>
