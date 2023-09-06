@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+### Project Information
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Name: `Learning Programming Application`
 
-## Available Scripts
+`Learn Programming` is an educational platform for programmers, developers, and students. Where they can learn tutorials, programming exercises, and courses. premium services are privately protected. fully responsive and single-page web application. 
 
-In the project directory, you can run:
+### Tools and Technologies (Library and Framework)
+1. VS code
+2.  HTML, CSS, JAVASCRIPT, REACT, NODE.JS, EXPRESS.JS
+3. Google Firebase for authentication
+4. Vercel for server-side data hosting
+5. react-router-dom, context API, react-hot-toast, react to pdf, etc.
+   
+### Features of This Project
+1. Category Data show
+2. Private Route
+3. Firebase authentication system with updated user profiles and updated password integration system
+4.  Mobile, tablet, iPad, laptop, and desktop are 100% responsive.
+5.  Language-wise exercises, tutorials, and courses show
+6.  Print the course description as a pdf, save it as, etc.
+7.  Reset the password and update the user profile.
+   
+### Discussion of this project
+I have developed an educational web application. In this application, I have added some programming languages for learning, like programming language exercises, tutorials, and some premium courses.
+On the home page, some data will be preloaded, like exercises on the left side and many tutorials. Each tutorial shows a cart with well-known details. Learners will learn smartly.
+In the exercise section, I have done it as `Premium`. Whoever does not have an account on this site cannot access these `premium exercises`.
+The header section contains `courses`, `blogs`, and `FAQ`, as well as `login`, `log out`, `register`, and `profile icons`, and one toggle button for `dark and light` mode.
+In the Login and Register form, there is a toggle button and a forgot `password` system, and you can sign in with the Google and GitHub systems.
+In the `profile` section, there are two features: one is `update profile`, and the second is `update password`.
+In the courses section, each course has two clickable buttons:` description` and purchase. Without a login, learners can see course descriptions but have no access. They must have an account as a login; otherwise, they cannot access them. because this is a private route. Anyone can print the course description` as a PDF.
 
-### `npm start`
+### Important Link of this Project
+Live Site Link: https://learn-programming-project.web.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Client Repo Link: https://github.com/mkmasudrana806/learn-programming-client-side
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Server Repo Link: https://github.com/mkmasudrana806/learn-programming-server-side
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Home Page
+![Home Page](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/9b1f6938-afcf-48d2-93fe-06a91627c5b7)
 
-### `npm run build`
+### Courses section 
+![Courses section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/307fbdc9-3377-4a7d-94b6-73918451e8ca)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tutorials Section 
+![Tutorials section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/e37134b8-c0e2-4d90-acb5-54566ed683d5)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
