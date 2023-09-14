@@ -36,14 +36,16 @@ Client Repo Link: https://github.com/mkmasudrana806/learn-programming-client-sid
 
 Server Repo Link: https://github.com/mkmasudrana806/learn-programming-server-side
 
+## Home Page
+![Home](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/52eed2d3-1941-4f90-8aea-1edbd0f18d5a)
 
-### Home Page
-![Home Page](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/9b1f6938-afcf-48d2-93fe-06a91627c5b7)
+### Tutorials Section
+![Tutorials section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/9b1f6938-afcf-48d2-93fe-06a91627c5b7)
 
 ### Courses section 
 ![Courses section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/307fbdc9-3377-4a7d-94b6-73918451e8ca)
 
-## Tutorials Section 
+## Tutorials explanation 
 ![Tutorials section](https://github.com/mkmasudrana806/learn-programming-client-side/assets/86706671/e37134b8-c0e2-4d90-acb5-54566ed683d5)
 
 
